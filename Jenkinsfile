@@ -5,6 +5,14 @@ pipeline {
     }
     stages {
         stage('build') {
+            when {
+                anyOf {
+                    changeset "tests"
+                    changeset "package.json"
+                    changeset "config.js"
+                    changeset "Jenkinsfile"
+                }
+            }
             steps {
                 script{
                     build()
