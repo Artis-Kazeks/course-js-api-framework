@@ -11,6 +11,7 @@ pipeline {
                     changeset "package.json"
                     changeset "config.js"
                     changeset "Jenkinsfile"
+                    changeset "Dockerfile"
                 }
             }
             steps {
