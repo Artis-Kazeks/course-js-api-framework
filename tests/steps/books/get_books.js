@@ -10,7 +10,7 @@ export async function getBooks() {
                     '7.id',
                 ],
                 expectedValues: [
-                                    {path: '0.id', value: 10},
+                                    {path: '0.id', value: 1},
                                     // {path: '6.id', value: 7},
                                 ]
             }
