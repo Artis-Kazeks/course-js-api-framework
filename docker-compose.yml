@@ -1,0 +1,32 @@
+services:
+  api-tests-dev:
+    build: .
+    image: artisktdl/api-tests
+    container_name: api-tests-dev
+    volumes:
+      - $PWD/test-reports/dev:/api-tests/mochawesome-report
+    command: run BOOKS BOOKS_DEV
+    networks:
+      - sample-book-app-compose-net
+  api-tests-stg:
+    build: .
+    image: artisktdl/api-tests
+    container_name: api-tests-stg
+    volumes:
+      - $PWD/test-reports/stg:/api-tests/mochawesome-report
+    command: run BOOKS BOOKS_STG
+    networks:
+      - sample-book-app-compose-net
+  api-tests-prd:
+    build: .
+    image: artisktdl/api-tests
+    container_name: api-tests-prd
+    volumes:
+      - $PWD/test-reports/prd:/api-tests/mochawesome-report
+    command: run BOOKS BOOKS_PRD
+    networks:
+      - sample-book-app-compose-net
+
+networks:
+  sample-book-app-compose-net:
+    external: true
